@@ -4,26 +4,35 @@ from flask_login import UserMixin
 from . import login_manager
 from datetime import datetime
 
-class Intrest(db.Model):
-    __tablename__='intrests'
+class User(db.Model):
+    __tablename__='users'
 
-    id = db.Column(db.Integer,primary_key = True)
-    intrest_name = db.Column(db.String)
-    description = db.Column(db.String)
-    
-
-class UserIntrests(db.Model):
-
-    __tablename__ ='user_intrests'
-
-    id = db.Column(db.Integer,primary_key = True)
-    user_id = db.Column(db.Integer("user.id"))
-    intrest_id = db.Column(db.Integer,db.ForeignKey("intrest.id"))
-    
-
-    def save_comment(self):
-        db.session.add(self)
-        db.session.commit()
+    id = db.Column(db.Integer,primary_key =True)
+    username = db.Column(db.String(255))
 
     def __repr__(self):
-        return f"Comment('{self.comment}', '{self.posted}')"
+        return f'User {self.username}'
+
+# class Intrest(db.Model):
+#     __tablename__='intrests'
+
+#     id = db.Column(db.Integer,primary_key = True)
+#     intrest_name = db.Column(db.String)
+#     description = db.Column(db.String)
+    
+
+# class UserIntrests(db.Model):
+
+#     __tablename__ ='user_intrests'
+
+#     id = db.Column(db.Integer,primary_key = True)
+#     user_id = db.Column(db.Integer("user.id"))
+#     intrest_id = db.Column(db.Integer,db.ForeignKey("intrest.id"))
+    
+
+#     def save_comment(self):
+#         db.session.add(self)
+#         db.session.commit()
+
+#     def __repr__(self):
+#         return f"Comment('{self.comment}', '{self.posted}')"
