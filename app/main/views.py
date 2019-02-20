@@ -1,6 +1,9 @@
 from flask import render_template, request, redirect, url_for,abort
 from . import main
 from .. import db
+from flask_login import login_required
+from ..models import User
+from .. import db, photos
 
 @main.route('/')
 def index():
