@@ -7,6 +7,7 @@ from .. import db, photos
 
 @main.route('/')
 def index():
+
     '''
     View root page function that returns the index page and its data
 
@@ -50,3 +51,6 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+
+
