@@ -4,6 +4,10 @@ from .. import db
 from flask_login import login_required
 from ..models import User
 from .. import db, photos
+import urllib.request, json
+from pprint import pprint
+
+
 
 @main.route('/')
 def index():
@@ -51,6 +55,29 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+@main.route('/livescore')
+def live():
+    response = urllib.request.urlopen
+    response = urllib.request.urlopen('http://livescore-api.com/api-client/scores/live.json?key=BqTIFtifL0AOicqs&secret=T6xotmiNFNW8qgk2HdLnH3Ct4dimpIPj')
+    data = response.read()
+    JSON_object = json.loads(data.decode('UTF-8'))
+    data = JSON_object
+    
+    
+    
+    
+    return render_template('livescore.html', data =data) 
+
+@main.route('/fixtures')
+def fixtures():
+    response = urllib.request.urlopen
+    response = urllib.request.urlopen('http://livescore-api.com/api-client/fixtures/matches.json?key=BqTIFtifL0AOicqs&secret=T6xotmiNFNW8qgk2HdLnH3Ct4dimpIPj')
+    data = response.read()
+    JSON_object = json.loads(data.decode('UTF-8'))
+    data = JSON_object
+
+
+    return render_template('fixtures.html', data = data,)
 
 
 

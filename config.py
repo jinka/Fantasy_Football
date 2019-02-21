@@ -11,8 +11,8 @@ class Config:
 
 
 
-    FOOTBALL_API_KEY = os.environ.get('FOOTBALL_API_KEY')
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    LIVESCORE_API_KEY = os.environ.get('LIVESCORE_API_KEY')
+    LIVESCORE_API_SECRET = os.environ.get('LIVESCORE_API_SECRET')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://derrick:database@localhost/fantasy'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     #  email configurations
