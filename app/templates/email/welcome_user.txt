@@ -1,3 +1,4 @@
-Hello {{user.username}},
-Welcome to Fantasy Football!!
-We have just seen you have signed up for our application and want to welcome you to the family. Select your intrest and start recieving Notifications on you Intrests.
+Wie ghets  {{user.username}},
+Wilkomen du Fantasy Football!!
+Our German Team of Developer welcome you to join our wonderful team.
+
