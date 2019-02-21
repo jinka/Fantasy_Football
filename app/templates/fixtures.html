@@ -24,10 +24,18 @@
                 </div>
             </div>
             <div class="column-md-8">
-                
-             {{data}}
-               
-                <div class="copyright">
+                    <div class="detail">
+                        {% if data['data']['fixtures'][0]%}
+                        {{data['data']['fixtures'][0]['away_name']}}
+                        {{data['data']['fixtures'][0]['home_name']}}
+                        {{data['data']['fixtures'][0]['location']}}
+                        {{data['data']['fixtures'][0]['time']}}
+                        
+                        {%else%}
+                        <h2>No id available</h2>                 
+                        {%endif%}
+                    </div>
+                    </div>
                     <p>&copy;All Rights Reserved, 2019</p>
                 </div>
             </div>

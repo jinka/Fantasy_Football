@@ -6,6 +6,7 @@ __pycache__/
 instance
 /virtual
 
+
 start.sh
 
 # C extensions
@@ -97,7 +98,7 @@ venv.bak/
 .idea/
 virt/
 .virt/
-
+virtual/
 # vscode
 .vscode/
 

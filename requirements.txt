@@ -12,7 +12,14 @@ itsdangerous==1.1.0
 Jinja2==2.10
 Mako==1.0.7
 MarkupSafe==1.1.0
+<<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 148a866ec59e8ac9bd659319e5eca9c3d85c166e
+=======
+
+>>>>>>> 0934138c48aa3e1cb5fcc96c08c6a46f05e1751a
 psycopg2==2.7.7
 python-dateutil==2.8.0
 python-editor==1.0.4

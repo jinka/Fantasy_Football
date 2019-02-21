@@ -62,11 +62,10 @@ def live():
     data = response.read()
     JSON_object = json.loads(data.decode('UTF-8'))
     data = JSON_object
+    data1=data["data"]
     
-    
-    
-    
-    return render_template('livescore.html', data =data) 
+    print(data1["match"])
+    return render_template('livescore.html', data =data1) 
 
 @main.route('/fixtures')
 def fixtures():
@@ -75,9 +74,10 @@ def fixtures():
     data = response.read()
     JSON_object = json.loads(data.decode('UTF-8'))
     data = JSON_object
+    data1=data["data"]
+    print(data1["fixtures"])
+    return render_template('fixtures.html', data = data1)
 
-
-    return render_template('fixtures.html', data = data,)
 
 
 
