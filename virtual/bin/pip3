@@ -1,13 +1,13 @@
-<<<<<<< HEAD
+<<<<<<< HEAD:virtual/bin/pip3
 #!/home/derrick/Desktop/PYTHON/Week5/Fantasy_Football/virtual/bin/python
 =======
 #!/home/anum/Documents/moringa-core-projects/flask/Fantasy_Football/virtual/bin/python3
->>>>>>> 1d7a5f0d66458a0f3dff6b36fbe5b27afb4bcac6
+>>>>>>> 1d7a5f0d66458a0f3dff6b36fbe5b27afb4bcac6:virtual/bin/pip3
 # -*- coding: utf-8 -*-
 import re
 import sys
 
-from alembic.config import main
+from pip._internal import main
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
