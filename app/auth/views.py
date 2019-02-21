@@ -39,5 +39,5 @@ def login():
 
       flash('Invalid username or Password')
 
-   title = "Blog Yangu login"
+   title = "Fantasy Football login"
    return render_template('auth/login.html',login_form = login_form,title=title)
