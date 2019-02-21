@@ -15,12 +15,18 @@
                 </div>
                 <div class= "row menu" >
                     <ul class= "menu">
-                        <li><a href="{{url_for('main.index')}}">HOME</a></li>
-                        <li><a href="">LIVE SCORE</a></li>
-                        <li><a href="">FIXTURES</a></li>
-                        <li><a href="">CONTACTS</a></li>
-                        <li><a href="">NEWS</a></li>
-                        <li><a href="">SIGNIN</a></li>
+                        <li><a href="{{url_for('main.index')}}">Home</a></li>
+                        <li><a href="">Live Score</a></li>
+                        <li><a href="">Fixtures</a></li>
+                        <li><a href="">Contacts</a></li>
+                        <li><a href="">News</a></li>
+                        {% if current_user.is_authenticated %}
+                        <li><a href="{{url_for('main.profile',uname=current_user.username)}}"><strong>Profile</strong></a></li>
+                        <li><a href="{{url_for('auth.logout')}}"><strong>SignOut</strong></a></li>
+                        {% else %}
+                        <li><a href="{{url_for('auth.login')}}">SignIn</a></li>
+                        {%endif%}
+                        
                     </ul>
                 </div>
             </div>
