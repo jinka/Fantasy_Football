@@ -4,4 +4,5 @@ from .. import db
 
 @main.route('/')
 def index():
-    return '<h1> Welcome to Football Fantasy </h1>'
+
+    return render_template("index.html")
