@@ -1,4 +1,4 @@
-#!/home/berto/Desktop/Fantasy_Football/virtual/bin/python2
+#!/home/anum/Documents/moringa-core-projects/flask/Fantasy_Football/virtual/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
