@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+
+{% block styles%}
+    {{ super() }}
+
+    {% endblock %}
+
+  {% block content %}
+  <body>
+    
+      <h3> {{country_name['country_name']}}</h3>
+      <h3> {{league_name['league_name']}}</h3>
+      <h3> {{match_time['match_time']}}</h3>
+      <h3> {{match_hometeam_name['match_hometeam_name']}}</h3>
+      <h3> {{match_awayteam_name['match_awayteam_name']}}</h3>
+      <h3> {{match_live['match_live']}}</h3>
+     
+     
+
+  </body>
+  {% endblock %}
