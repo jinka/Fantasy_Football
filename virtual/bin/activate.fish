@@ -29,7 +29,11 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
+<<<<<<< HEAD
+set -gx VIRTUAL_ENV "/home/derrick/Desktop/PYTHON/Week5/Fantasy_Football/virtual"
+=======
 set -gx VIRTUAL_ENV "/home/anum/Documents/moringa-core-projects/flask/Fantasy_Football/virtual"
+>>>>>>> 1d7a5f0d66458a0f3dff6b36fbe5b27afb4bcac6
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
