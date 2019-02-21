@@ -13,7 +13,7 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     password_hash = db.Column(db.String(255))
     pass_secure  = db.Column(db.String(255))
-    
+
     @property
     def password(self):
         raise AttributeError('You cannot read the password attribute')
