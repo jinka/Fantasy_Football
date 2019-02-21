@@ -1,5 +1,4 @@
-
-{% extends 'base.html' %}
+{% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {%block content%}
@@ -9,7 +8,7 @@
             <div class="column-md-4">
                 <div class="row">
                     <div class="col-md-12 logo">
-                        <div><img src="./static/photos/download.jpeg" alt="football pic" class="football"></div>
+                        <div><img src="../static/photos/download.jpeg" alt="football pic" class="football"></div>
                         <div class="footballTxt">FootBall</div>
                     </div>
                 </div>
@@ -31,11 +30,23 @@
                 </div>
             </div>
             <div class="column-md-8">
-                <div class="detail">
-                    <h1>FOOTBALL_<span class="color">NOTIFIER</span>.COM</h1>
-                    <hr>
-                    <h3>A WEBSITE TO SEND SMS/EMAIL NOTIFICATIONS ABOUT FOOTBALL DATA | LIVESCORE | FIXTURES | PLAYERS | FOOTBALL NEWS</h3>
-                    <h2><a class="color" href="">SIGNUP TO GET SMS/EMAIL NOTIFICATIONS</a></h2>
+                <div class="login_form">
+                    <!--Flash message -->
+                  {% for message in get_flashed_messages() %}
+                  <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                  </div>
+                  {% endfor %}
+                  <!-- Login login_form -->
+                  <login_form method="POST">
+                    <div> {{ login_form.hidden_tag() }}</div>
+                    <div>{{ login_form.email(class='loginform',placeholder="Enter your email address") }}</div>
+                    <div>{{ login_form.password(class='loginform',placeholder="Enter your password") }}</div>
+                    <div>{{ login_form.remember.label(class='loginLabel')}}{{ login_form.remember (class='loginLabel')}}</div>
+                    <div>{{ login_form.submit(class='submit')}}</div>
+                  </login_form>
+                  <p class="loginLabel"> Don't have an account? <a href="{{url_for('auth.register')}}"><span class="color">Sign up here</span></a></p>
                 </div>
                 <div class="copyright">
                     <p>&copy;All Rights Reserved, 2019</p>
@@ -43,6 +54,5 @@
             </div>
         </div>
     </div>
-
-
 {%endblock%}
+

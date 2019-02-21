@@ -1,0 +1,4 @@
+Wie ghets  {{user.username}},
+Wilkomen du Fantasy Football!!
+Our German Team of Developer welcome you to join our wonderful team.
+
