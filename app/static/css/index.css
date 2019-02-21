@@ -69,7 +69,7 @@
     font-size: 43px;
     color: #E0E0E0;
 }
-.menu li a:hover, h2 a:hover{
+.menu li a:hover{
     background-color: #EB5757;
 }
 .menu li a:active{
