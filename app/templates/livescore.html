@@ -24,9 +24,16 @@
             </div>
             <div class="column-md-8">
                 <div class="detail-live">
-                    
-                    {{data}}
-                    
+                        {% for data in data1 %}
+                        <li>{{data.league_name}}</li>                           
+                        <li>{{data.home_name}}</li>
+                        <li>{{data.away_name}}</li>
+                        <li>{{data.score}}</li>
+                        <li>{{data.time}}</li>
+                        <li>{{data.status}}</li>
+     
+                        {% endfor %}
+                   
                     
                 </div>
                 </div>

@@ -25,15 +25,13 @@
             </div>
             <div class="column-md-8">
                     <div class="detail">
-                        {% if data['data']['fixtures'][0]%}
-                        {{data['data']['fixtures'][0]['away_name']}}
-                        {{data['data']['fixtures'][0]['home_name']}}
-                        {{data['data']['fixtures'][0]['location']}}
-                        {{data['data']['fixtures'][0]['time']}}
-                        
-                        {%else%}
-                        <h2>No id available</h2>                 
-                        {%endif%}
+                            {% for data in data1 %}
+                            <li>{{data.date}}</li>                           
+                            <li>{{data.home_name}}</li>
+                            <li>{{data.away_name}}</li>
+                            <li>{{data.time}}</li>
+         
+                            {% endfor %}
                     </div>
                     </div>
                     <p>&copy;All Rights Reserved, 2019</p>
