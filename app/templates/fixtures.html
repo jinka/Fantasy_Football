@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{%block content%}
+    <div class="backgroundImg"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="column-md-4">
+                <div class="row">
+                    <div class="col-md-12 logo">
+                        <div><img src="./static/photos/download.jpeg" alt="football pic" class="football"></div>
+                        <div class="footballTxt">FootBall</div>
+                    </div>
+                </div>
+                <div class= "row menu" >
+                    <ul class= "menu">
+                        <li><a href="{{url_for('main.index')}}">HOME</a></li>
+                        <li><a href="">LIVE SCORE</a></li>
+                        <li><a href="">FIXTURES</a></li>
+                        <li><a href="">CONTACTS</a></li>
+                        <li><a href="">NEWS</a></li>
+                        <li><a href="">SIGNIN</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column-md-8">
+                    <div class="detail">
+                        {% if data['data']['fixtures'][0]%}
+                        {{data['data']['fixtures'][0]['away_name']}}
+                        {{data['data']['fixtures'][0]['home_name']}}
+                        {{data['data']['fixtures'][0]['location']}}
+                        {{data['data']['fixtures'][0]['time']}}
+                        
+                        {%else%}
+                        <h2>No id available</h2>                 
+                        {%endif%}
+                    </div>
+                    </div>
+                    <p>&copy;All Rights Reserved, 2019</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{%endblock%}
+
