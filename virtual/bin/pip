@@ -1,8 +1,8 @@
 <<<<<<< HEAD
-#!/home/derrick/Desktop/PYTHON/Week5/Fantasy_Football/virtual/bin/python
+#!/home/berto/Desktop/Fantasy_Football/virtual/bin/python2
 =======
 #!/home/anum/Documents/moringa-core-projects/flask/Fantasy_Football/virtual/bin/python3
->>>>>>> 1d7a5f0d66458a0f3dff6b36fbe5b27afb4bcac6
+>>>>>>> e428446ba96477e1caf8741fd6f2489613de1313
 # -*- coding: utf-8 -*-
 import re
 import sys

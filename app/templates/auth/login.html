@@ -1,24 +1,58 @@
 {% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 
-{% block content %}
-<div class="container"style="font-size:40px">
-  <div class="row" >
-    <div class="col-md-2"> </div>
-    <div class="col-md-8">
-      <!--Flash message -->
-      {% for message in get_flashed_messages() %}
-      <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        {{ message }}
-      </div>
-      {% endfor %}
-      <!-- Login form -->
-      {{wtf.quick_form(login_form)}}
-      <p> Don't have an account? <a href="{{url_for('auth.register')}}">Sign up here</a></p>
+{%block content%}
+    <div class="backgroundImg"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="column-md-4">
+                <div class="row">
+                    <div class="col-md-12 logo">
+                        <div><img src="../static/photos/download.jpeg" alt="football pic" class="football"></div>
+                        <div class="footballTxt">FootBall</div>
+                    </div>
+                </div>
+                <div class= "row menu" >
+                    <ul class= "menu">
+                        <li><a href="{{url_for('main.index')}}">Home</a></li>
+                        <li><a href="">Live Score</a></li>
+                        <li><a href="">Fixtures</a></li>
+                        <li><a href="">Contacts</a></li>
+                        <li><a href="">News</a></li>
+                        {% if current_user.is_authenticated %}
+                        <li><a href="{{url_for('main.profile',uname=current_user.username)}}"><strong>Profile</strong></a></li>
+                        <li><a href="{{url_for('auth.logout')}}"><strong>SignOut</strong></a></li>
+                        {% else %}
+                        <li><a href="{{url_for('auth.login')}}">SignIn</a></li>
+                        {%endif%}
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="column-md-8">
+                <div class="login_form">
+                    <!--Flash message -->
+                  {% for message in get_flashed_messages() %}
+                  <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                  </div>
+                  {% endfor %}
+                  <!-- Login login_form -->
+                  <login_form method="POST">
+                    <div> {{ login_form.hidden_tag() }}</div>
+                    <div>{{ login_form.email(class='loginform',placeholder="Enter your email address") }}</div>
+                    <div>{{ login_form.password(class='loginform',placeholder="Enter your password") }}</div>
+                    <div>{{ login_form.remember.label(class='loginLabel')}}{{ login_form.remember (class='loginLabel')}}</div>
+                    <div>{{ login_form.submit(class='submit')}}</div>
+                  </login_form>
+                  <p class="loginLabel"> Don't have an account? <a href="{{url_for('auth.register')}}"><span class="color">Sign up here</span></a></p>
+                </div>
+                <div class="copyright">
+                    <p>&copy;All Rights Reserved, 2019</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div clas="col-md-2"> </div>
-  </div>
-</div>
+{%endblock%}
 
-{% endblock%}

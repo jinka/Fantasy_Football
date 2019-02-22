@@ -4,6 +4,7 @@ __pycache__/
 *.py[cod]
 *.class
 instance
+/virtual
 
 
 start.sh
@@ -97,7 +98,7 @@ venv.bak/
 .idea/
 virt/
 .virt/
-
+virtual/
 # vscode
 .vscode/
 

@@ -1,18 +1,69 @@
 {% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 
-{% block content %}
-<div class="container">
-<div class="row">
-<div class="col-md-2"> </div>
-<div class="col-md-8">
+{%block content%}
+    <div class="backgroundImg"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="column-md-4">
+                <div class="row">
+                    <div class="col-md-12 logo">
+                        <div><img src="../static/photos/download.jpeg" alt="football pic" class="football"></div>
+                        <div class="footballTxt">FootBall</div>
+                    </div>
+                </div>
+                <div class= "row menu" >
+                    <ul class= "menu">
+                        <li><a href="{{url_for('main.index')}}">Home</a></li>
+                        <li><a href="">Live Score</a></li>
+                        <li><a href="">Fixtures</a></li>
+                        <li><a href="">Contacts</a></li>
+                        <li><a href="">News</a></li>
+                        {% if current_user.is_authenticated %}
+                        <li><a href="{{url_for('main.profile',uname=current_user.username)}}"><strong>Profile</strong></a></li>
+                        <li><a href="{{url_for('auth.logout')}}"><strong>SignOut</strong></a></li>
+                        {% else %}
+                        <li><a href="{{url_for('auth.login')}}">SignIn</a></li>
+                        {%endif%}
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="column-md-8">
+                <div class="registration_form">
+                    <!--Flash message -->
+                  {% for message in get_flashed_messages() %}
+                  <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                  </div>
+                  {% endfor %}
+                  <!-- Login registration_form -->
+                  <registration_form method="POST">
+                    <div> {{ registration_form.hidden_tag() }}</div>
+                    <div>{{ registration_form.email(class='registrationform',placeholder="Enter your email address") }}</div>
+                    <div>{{ registration_form.username(class='registrationform',placeholder="Enter your username") }}</div>
+                    <div>{{registration_form.phone(class="registrationform", placeholder="Enter your phone number")}}</div>
+                    <div>{{registration_form.interest.label}}</div>
+                    <div>{% for subfield in registration_form.interest %}
+                        <tr>
+                            <td>{{ subfield }}</td>
+                            <td>{{ subfield.label }}</td>
+                        </tr>
+                        {% endfor %}
+                    </div> 
 
-{{wtf.quick_form(registration_form)}}
+                    <div>{{ registration_form.password(class='registrationform',placeholder="Enter your password") }}</div>
+                    <div>{{ registration_form.password_confirm(class='registrationform',placeholder="Retype your password") }}</div>
+                    <div>{{ registration_form.submit(class='submit')}}</div>
+                  </registration_form>
+                  <p class="loginLabel"> Don't have an account? <a href="{{url_for('auth.register')}}"><span class="color">Sign up here</span></a></p>
+                </div>
+                <div class="copyright">
+                    <p>&copy;All Rights Reserved, 2019</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}
 
-</div>
-<div class="col-md-2"></div>
-
-</div>
-</div>
-
-{% endblock%}
