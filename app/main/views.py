@@ -5,7 +5,7 @@ from flask_login import login_required
 from ..models import User
 from .. import db, photos
 import urllib.request, json
-from pprint import pprint
+import json2html, json2table
 
 
 
@@ -58,14 +58,20 @@ def update_pic(uname):
 @main.route('/livescore')
 def live():
     response = urllib.request.urlopen
-    response = urllib.request.urlopen('http://livescore-api.com/api-client/scores/live.json?key=BqTIFtifL0AOicqs&secret=T6xotmiNFNW8qgk2HdLnH3Ct4dimpIPj')
-    data = response.read()
-    JSON_object = json.loads(data.decode('UTF-8'))
-    data = JSON_object
-    data1=data["data"]
+    response = urllib.request.urlopen('http://livescore-api.com/api-client/fixtures/matches.json?key=BqTIFtifL0AOicqs&secret=T6xotmiNFNW8qgk2HdLnH3Ct4dimpIPj')
     
-    print(data1["match"])
-    return render_template('livescore.html', data =data1) 
+    read_Data=response.read()
+    
+    JSON_object = json.loads(read_Data)
+
+    
+    table = json2html.convert(json = JSON_object)    index= open("livescore.html","w")
+    index.write(table)
+    index.close()
+    
+    
+    
+    return render_template('livescore.html') 
 
 @main.route('/fixtures')
 def fixtures():
@@ -74,7 +80,7 @@ def fixtures():
     data = response.read()
     JSON_object = json.loads(data.decode('UTF-8'))
     data = JSON_object
-    data1=data["data"]
+    data1=JSON_object["fixtures"]
     print(data1["fixtures"])
     return render_template('fixtures.html', data = data1)
 

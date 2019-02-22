@@ -23,16 +23,11 @@
                 </div>
             </div>
             <div class="column-md-8">
-                <div class="detail">
-                    {% if data['data']['match'][0]%}
-                    {{data['data']['match'][0]['away_name']}}
-                    {{data['data']['match'][1]['home_name']}}
-                    {{data['data']['match'][2]['score']}}
-                    {{data['data']['match'][3]['time']}}
-                    {{data['data']['match'][4]['status']}}
-                    {%else%}
-                    <h2>No id available</h2>                 
-                    {%endif%}
+                <div class="detail-live">
+                    
+                    {{data}}
+                    
+                    
                 </div>
                 </div>
                 <div class="copyright">
