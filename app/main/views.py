@@ -57,32 +57,39 @@ def update_pic(uname):
     return redirect(url_for('main.profile',uname=uname))
 @main.route('/livescore')
 def live():
-    response = urllib.request.urlopen
-    response = urllib.request.urlopen('http://livescore-api.com/api-client/fixtures/matches.json?key=BqTIFtifL0AOicqs&secret=T6xotmiNFNW8qgk2HdLnH3Ct4dimpIPj')
+    
+    response = urllib.request.urlopen('http://livescore-api.com/api-client/scores/live.json?key=BqTIFtifL0AOicqs&secret=T6xotmiNFNW8qgk2HdLnH3Ct4dimpIPj')
     
     read_Data=response.read()
     
-    JSON_object = json.loads(read_Data)
+    JSON_object = json.loads(read_Data.decode("UTF-8"))
+
+    data1 = JSON_object["data"]["match"]
+    
+    print(data1)
 
     
-    table = json2html.convert(json = JSON_object)    index= open("livescore.html","w")
-    index.write(table)
-    index.close()
+    # build_direction ="LEFT_TO_RIGHT"
+    # table_attributes = {"style": "width:100%"}
+    
+    # table1=json2table.convert(JSON_object, build_direction, table_attributes)   
     
     
     
-    return render_template('livescore.html') 
+    
+    return render_template('livescore.html', data1 = data1) 
 
 @main.route('/fixtures')
 def fixtures():
-    response = urllib.request.urlopen
+    
     response = urllib.request.urlopen('http://livescore-api.com/api-client/fixtures/matches.json?key=BqTIFtifL0AOicqs&secret=T6xotmiNFNW8qgk2HdLnH3Ct4dimpIPj')
     data = response.read()
     JSON_object = json.loads(data.decode('UTF-8'))
-    data = JSON_object
-    data1=JSON_object["fixtures"]
-    print(data1["fixtures"])
-    return render_template('fixtures.html', data = data1)
+    
+    data1=JSON_object["data"]["fixtures"]
+    print(data1)
+
+    return render_template('fixtures.html', data1 = data1)
 
 
 
