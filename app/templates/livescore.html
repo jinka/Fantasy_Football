@@ -25,13 +25,18 @@
             <div class="column-md-8">
                 <div class="detail-live">
                         {% for data in data1 %}
-                        <li>{{data.league_name}}</li>                           
-                        <li>{{data.home_name}}</li>
-                        <li>{{data.away_name}}</li>
-                        <li>{{data.score}}</li>
-                        <li>{{data.time}}</li>
-                        <li>{{data.status}}</li>
-     
+                        <div class="row">
+                                <div class="column-live">
+                                  <div class="card">
+                                    <h3>{{data.league_name}}</h3>
+                                    <p>{{data.home_name}}</p>
+                                    <p>{{data.away_name}}</p>
+                                    <p>{{data.score}}</p>
+                                    <p>{{data.time}}</p>
+                                    <p>{{data.status}}</p>
+                                  </div>
+                                </div>
+                            
                         {% endfor %}
                    
                     
